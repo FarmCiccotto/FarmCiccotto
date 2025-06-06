@@ -20,6 +20,7 @@ nav {
 nav .logo img {
   height: 50px;
   width: auto;
+  display: block;
 }
 
 nav ul {
