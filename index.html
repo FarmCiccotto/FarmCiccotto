@@ -1,77 +1,21 @@
-<!-- <!DOCTYPE html>
-<html>
-<head>
-  <title>Welcome to FarmCiccotto</title>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      padding: 50px;
-      background: #fdf6e3;
-    }
-    h1 { color: #4b6e3c; }
-  </style>
-</head>
-<body>
-  <h1>Welcome to FarmCiccotto!</h1>
-  <p>Premium cold-pressed olive oil, straight from the grove.</p>
-</body>
-</html>
-
- -->
-<!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Farm Ciccotto – Olive Oil</title>
-  <style>
-    body {
-      font-family: sans-serif;
-      text-align: center;
-      background: #fffbe6;
-      padding: 2rem;
-    }
-    img {
-      max-width: 90%;
-      height: auto;
-      margin: 1rem 0;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-  </style>
-</head>
-<body>
-  <h1>Welcome to Farm Ciccotto</h1>
-  <p>Our premium extra virgin olive oil, from our family farm to your table.</p>
-
-
-  <img src="assets/DJI_0301.jpg" alt="DJI_0301.jpg" />
-
-<!--   <a href="assets/Dimì Olive aggiornato.pdf" target="_blank">
-  📄 View our Olive Oil PDF brochure
-</a> -->
-<!-- 
-</body>
-</html> --> -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Farm Ciccotto – Premium Extra Virgin Olive Oil</title>
-  <meta name="description" content="Farm Ciccotto produces premium extra virgin olive oil from our family farm in Italy. Discover our story, products, and how to order." />
-  <link rel="stylesheet" href="styles.css">
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  <meta name="description" content="Farm Ciccotto produces premium extra virgin olive oil from our family farm in Italy." />
+  <meta name="theme-color" content="#2e3d36" />
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
 </head>
 <body>
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
   <header>
-    <nav>
+    <nav role="navigation" aria-label="Main navigation">
       <div class="logo">
-        <img src="assets/Logo ciccotto timbro white.png" alt="Farm Ciccotto Logo" />
+        <img src="assets/Logo ciccotto timbro white.png" alt="Farm Ciccotto logo" class="white-logo" />
       </div>
       <ul>
         <li><a href="#about">About</a></li>
@@ -81,91 +25,133 @@
         <li><a href="#contact">Contact</a></li>
       </ul>
     </nav>
-    <div class="hero">
-      <h1>Farm Ciccotto</h1>
+
+    <div class="hero" role="banner" aria-labelledby="site-title">
+      <h1 id="site-title">Farm Ciccotto</h1>
       <p>Authentic Extra Virgin Olive Oil from Our Family to Your Table</p>
       <a class="cta" href="#order">Order Now</a>
     </div>
   </header>
 
-  <main>
-    <section id="about" class="about">
-      <h2>About Us</h2>
-      <p>
-        Farm Ciccotto is a family-owned olive farm nestled in the heart of Italy’s countryside. For generations, our family has dedicated itself to sustainable farming, hand-picking olives to create premium extra virgin olive oil. We believe in quality, tradition, and bringing the authentic taste of Italy to your home.
-      </p>
+  <main id="main-content" tabindex="-1">
+    <section id="about" class="about" aria-labelledby="about-heading">
+      <h2 id="about-heading">About Us</h2>
+      <p>Farm Ciccotto is a family-owned olive farm in Italy. For generations we craft premium extra virgin olive oil using sustainable methods.</p>
     </section>
 
-    <section id="products" class="products">
-      <h2>Our Products</h2>
+    <section id="products" class="products" aria-labelledby="products-heading">
+      <h2 id="products-heading">Our Products</h2>
       <div class="product-card">
-        <img src="assets/olive_oil_bottle.jpg" alt="Farm Ciccotto Olive Oil Bottle" />
+        <img src="assets/1_20220518_082010_0000.jpg" alt="Farm Ciccotto product" />
         <div>
           <h3>Extra Virgin Olive Oil</h3>
-          <p>
-            Cold pressed and unfiltered, our olive oil offers a rich, fruity flavor with a peppery finish. Available in 500ml and 1L bottles.
-          </p>
+          <p>Cold pressed, fruity and peppery — available in 500ml and 1L bottles.</p>
           <ul>
             <li>Harvested & bottled on our family farm</li>
             <li>First cold press</li>
             <li>Organic and sustainable</li>
-            <li>2024 Harvest</li>
           </ul>
         </div>
       </div>
     </section>
 
-    <section id="gallery" class="gallery">
-      <h2>Gallery</h2>
-      <div class="gallery-grid">
-        <img src="assets/DJI_0301.jpg" alt="Aerial View of Farm" />
-        <img src="assets/olive_grove.jpg" alt="Olive Grove" />
-        <img src="assets/harvest.jpg" alt="Harvesting Olives" />
+    <section id="gallery" class="gallery" aria-labelledby="gallery-heading">
+      <h2 id="gallery-heading">Gallery</h2>
+      <div id="gallery-grid" class="gallery-grid" aria-live="polite" aria-label="Photo gallery">
+        <!-- Gallery images will be rendered here by JS from assets/images.json (falls back to static markup below) -->
+        <noscript>
+          <!-- If JS is disabled, you can keep a small static fallback here -->
+          <img class="photo" src="assets/1_20220518_082010_0000.jpg" alt="Olive grove" />
+          <img class="photo" src="assets/2_20220518_082010_0001.jpg" alt="Harvesting olives" />
+        </noscript>
       </div>
     </section>
 
-    <section id="order" class="order">
-      <h2>Order</h2>
-      <p>
-        To place an order, please email us at <a href="mailto:info@farmciccotto.com">info@farmciccotto.com</a> or fill out the form below. We ship across Europe and the USA. Wholesale inquiries welcome.
-      </p>
-      <form class="order-form" method="POST" action="mailto:info@farmciccotto.com" enctype="text/plain">
+    <section id="order" class="order" aria-labelledby="order-heading">
+      <h2 id="order-heading">Order</h2>
+      <p>To place an order email <a href="mailto:farmciccotto@gmail.com">farmciccotto@gmail.com</a> or fill the form below.</p>
+
+      <form class="order-form" method="POST" action="mailto:farmciccotto@gmail.com" enctype="text/plain" aria-label="Order form">
         <label>
           Name:
-          <input type="text" name="name" required>
+          <input type="text" name="name" required aria-required="true" />
         </label>
         <label>
           Email:
-          <input type="email" name="email" required>
+          <input type="email" name="email" required aria-required="true" />
         </label>
         <label>
           Product & Quantity:
-          <textarea name="order_details" rows="2" required placeholder="e.g., 2 x 1L bottles"></textarea>
+          <textarea name="order_details" rows="2" required placeholder="e.g., 2 x 1L bottles" aria-required="true"></textarea>
         </label>
         <label>
           Shipping Address:
-          <textarea name="address" rows="2" required></textarea>
+          <textarea name="address" rows="2" required aria-required="true"></textarea>
         </label>
         <button type="submit">Submit Order Request</button>
       </form>
     </section>
 
-    <section id="contact" class="contact">
-      <h2>Contact</h2>
-      <p>
-        For any questions or partnership opportunities, don’t hesitate to reach out.<br>
-        Email: <a href="mailto:info@farmciccotto.com">info@farmciccotto.com</a><br>
-        Phone: +39 0123 456789
-      </p>
-      <p>
-        Follow us on
-        <a href="https://www.instagram.com/farmciccotto" target="_blank">Instagram</a>
-      </p>
+    <section id="contact" class="contact" aria-labelledby="contact-heading">
+      <h2 id="contact-heading">Contact</h2>
+      <p>Email: <a href="mailto:farmciccotto@gmail.com">farmciccotto@gmail.com</a><br>Phone: +39 0123 456789</p>
+      <p>Follow us on <a href="https://www.instagram.com/farmciccotto" target="_blank" rel="noopener noreferrer">Instagram</a></p>
     </section>
   </main>
 
   <footer>
     <p>&copy; 2025 Farm Ciccotto. All rights reserved.</p>
   </footer>
+
+  <script>
+    // Gallery loader: fetch assets/images.json (array of {src, alt, srcSmall?})
+    // This gives you flexibility to add/delete images next week by editing assets/images.json only.
+    (function () {
+      const grid = document.getElementById('gallery-grid');
+      if (!grid) return;
+
+      fetch('assets/images.json', {cache: 'no-cache'})
+        .then(r => {
+          if (!r.ok) throw new Error('images.json not found');
+          return r.json();
+        })
+        .then(images => {
+          grid.innerHTML = ''; // clear fallback
+          if (!Array.isArray(images) || images.length === 0) {
+            grid.innerHTML = '<p>No images yet. Add assets/images.json listing your files.</p>';
+            return;
+          }
+          images.forEach(img => {
+            try {
+              // img may be { src, alt, srcSmall }
+              if (img.srcSmall) {
+                const picture = document.createElement('picture');
+                const source = document.createElement('source');
+                source.setAttribute('srcset', img.srcSmall);
+                source.setAttribute('media', '(max-width: 800px)');
+                picture.appendChild(source);
+                const el = document.createElement('img');
+                el.className = 'photo';
+                el.src = img.src;
+                el.alt = img.alt || '';
+                picture.appendChild(el);
+                grid.appendChild(picture);
+              } else {
+                const el = document.createElement('img');
+                el.className = 'photo';
+                el.src = img.src;
+                el.alt = img.alt || '';
+                grid.appendChild(el);
+              }
+            } catch (e) {
+              // skip invalid entry
+            }
+          });
+        })
+        .catch(() => {
+          // No images.json — keep the noscript/static fallback
+        });
+    })();
+  </script>
 </body>
 </html>
