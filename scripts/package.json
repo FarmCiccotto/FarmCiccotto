@@ -1,0 +1,12 @@
+{
+  "name": "farmciccotto-site",
+  "version": "1.0.0",
+  "description": "Farm Ciccotto site tooling",
+  "private": true,
+  "scripts": {
+    "images:optimize": "node scripts/optimize-images.js"
+  },
+  "devDependencies": {
+    "sharp": "^0.32.0"
+  }
+}
