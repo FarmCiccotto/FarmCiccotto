@@ -1,0 +1,38 @@
+name: Optimize images
+
+on:
+  push:
+    paths:
+      - 'assets/images-source/**'
+
+jobs:
+  optimize:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install
+        run: npm ci
+
+      - name: Optimize images
+        run: npm run images:optimize
+
+      - name: Commit optimized images
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "actions@github.com"
+          git add assets/images || true
+          if git diff --cached --quiet; then
+            echo "No image changes to commit"
+          else
+            git commit -m "chore(images): optimized images (automated)"
+            git push
+          fi
