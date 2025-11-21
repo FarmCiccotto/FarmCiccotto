@@ -1,20 +1,41 @@
 [
   {
-    "src": "assets/1_20220518_082010_0000.jpg",
-    "srcSmall": "assets/1_20220518_082010_0000_small.jpg",
-    "full": "assets/1_20220518_082010_0000.jpg",
-    "alt": "Olive grove at sunrise"
+    "id": "grove-sunrise",
+    "alt": "Olive grove at sunrise",
+    "src": "assets/images/1_20220518_082010_0000_large.jpg",
+    "srcSmall": "assets/images/1_20220518_082010_0000_small.jpg",
+    "srcWebp": "assets/images/1_20220518_082010_0000_large.webp",
+    "srcSmallWebp": "assets/images/1_20220518_082010_0000_small.webp",
+    "srcAvif": "assets/images/1_20220518_082010_0000_large.avif",
+    "srcSmallAvif": "assets/images/1_20220518_082010_0000_small.avif",
+    "full": "assets/images/1_20220518_082010_0000_large.jpg",
+    "fullWebp": "assets/images/1_20220518_082010_0000_large.webp",
+    "fullAvif": "assets/images/1_20220518_082010_0000_large.avif"
   },
   {
-    "src": "assets/2_20220518_082010_0001.jpg",
-    "srcSmall": "assets/2_20220518_082010_0001_small.jpg",
-    "full": "assets/2_20220518_082010_0001.jpg",
-    "alt": "Harvesting olives by hand"
+    "id": "harvest",
+    "alt": "Harvesting olives by hand",
+    "src": "assets/images/2_20220518_082010_0001_large.jpg",
+    "srcSmall": "assets/images/2_20220518_082010_0001_small.jpg",
+    "srcWebp": "assets/images/2_20220518_082010_0001_large.webp",
+    "srcSmallWebp": "assets/images/2_20220518_082010_0001_small.webp",
+    "srcAvif": "assets/images/2_20220518_082010_0001_large.avif",
+    "srcSmallAvif": "assets/images/2_20220518_082010_0001_small.avif",
+    "full": "assets/images/2_20220518_082010_0001_large.jpg",
+    "fullWebp": "assets/images/2_20220518_082010_0001_large.webp",
+    "fullAvif": "assets/images/2_20220518_082010_0001_large.avif"
   },
   {
-    "src": "assets/3_bottle_still_life.jpg",
-    "srcSmall": "assets/3_bottle_still_life_small.jpg",
-    "full": "assets/3_bottle_still_life_large.jpg",
-    "alt": "Farm Ciccotto bottle on wooden table"
+    "id": "bottle",
+    "alt": "Farm Ciccotto bottle on wooden table",
+    "src": "assets/images/3_bottle_still_life_large.jpg",
+    "srcSmall": "assets/images/3_bottle_still_life_small.jpg",
+    "srcWebp": "assets/images/3_bottle_still_life_large.webp",
+    "srcSmallWebp": "assets/images/3_bottle_still_life_small.webp",
+    "srcAvif": "assets/images/3_bottle_still_life_large.avif",
+    "srcSmallAvif": "assets/images/3_bottle_still_life_small.avif",
+    "full": "assets/images/3_bottle_still_life_large.jpg",
+    "fullWebp": "assets/images/3_bottle_still_life_large.webp",
+    "fullAvif": "assets/images/3_bottle_still_life_large.avif"
   }
 ]
