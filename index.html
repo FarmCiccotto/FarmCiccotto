@@ -11,9 +11,6 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- Plausible analytics (replace yourdomain.com) -->
-  <script defer data-domain="https://farmciccotto.com/" src="https://plausible.io/js/plausible.js"></script>
-
   <link rel="stylesheet" href="styles.css" />
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
 </head>
@@ -23,7 +20,7 @@
   <header class="site-header" role="banner" aria-label="Site header">
     <div class="container header-inner">
       <a class="brand" href="#">
-        <img src="assets/Logo%20ciccotto%20timbro%20black.png" alt="Farm Ciccotto logo" class="brand-logo" />
+        <img src="assets/Logo ciccotto timbro black (2).png" alt="Farm Ciccotto logo" class="brand-logo" />
         <span class="brand-text">Farm Ciccotto</span>
       </a>
 
@@ -64,7 +61,7 @@
           </ul>
         </div>
         <div class="about-image" aria-hidden="true">
-          <img src="assets/images/1_20220518_082010_0000_large.jpg" alt="Olive grove at Farm Ciccotto" />
+          <img src="assets/1_20220518_082010_0000.jpg" alt="Olive grove at Farm Ciccotto" />
         </div>
       </div>
     </section>
@@ -74,7 +71,7 @@
         <h2 id="products-heading">Our Products</h2>
         <div class="products-grid">
           <article class="product-card">
-            <img src="assets/images/3_bottle_still_life_large.jpg" alt="Extra Virgin Olive Oil bottle" class="product-image" />
+            <img src="assets/1_20220518_082010_0000.jpg" alt="Extra Virgin Olive Oil bottle" class="product-image" />
             <div class="product-body">
               <h3>Extra Virgin Olive Oil</h3>
               <p class="muted">Cold-pressed, fruity with a peppery finish. Available in 500ml and 1L bottles.</p>
@@ -94,9 +91,11 @@
       <div class="container">
         <h2 id="gallery-heading">Gallery</h2>
         <div id="gallery-grid" class="gallery-grid" aria-live="polite" aria-label="Photo gallery">
+          <!-- JS will render images from assets/images.json -->
           <noscript>
-            <img class="photo" src="assets/images/1_20220518_082010_0000_large.jpg" alt="Olive grove" />
-            <img class="photo" src="assets/images/2_20220518_082010_0001_large.jpg" alt="Harvesting olives" />
+            <img class="photo" src="assets/1_20220518_082010_0000.jpg" alt="Olive grove" />
+            <img class="photo" src="assets/2_20220518_082010_0001.jpg" alt="Harvesting olives" />
+            <img class="photo" src="assets/2_20220518_082010_0003.jpg" alt="Harvesting olives" />
           </noscript>
         </div>
       </div>
@@ -107,12 +106,17 @@
         <h2 id="order-heading">Order</h2>
         <p>To place an order, email <a href="mailto:farmciccotto@gmail.com">farmciccotto@gmail.com</a> or use the form below. We'll reply with availability, pricing, and shipping options within 24–48 hours.</p>
 
-        <!-- Netlify Forms: simple, works without server code when the site is hosted on Netlify -->
-        <form name="order" method="POST" data-netlify="true" netlify-honeypot="_gotcha" class="order-form" aria-label="Order form">
-          <input type="hidden" name="form-name" value="order" />
-          <p style="display:none">
-            <label>Don’t fill this out: <input name="_gotcha" /></label>
-          </p>
+        <!--
+          IMPORTANT:
+          - Replace {YOUR_FORMSPREE_ID} with the Formspree form ID you create.
+          - Or replace the action with your server endpoint (e.g., Netlify, serverless) if you prefer.
+        -->
+        <form id="orderForm" class="order-form" method="POST" action="https://formspree.io/f/2875462449803295904" aria-label="Order form">
+          <!-- simple honeypot to catch bots -->
+          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+
+          <!-- optional: set email subject for Formspree -->
+          <input type="hidden" name="_subject" value="New order request from website" />
 
           <div class="form-grid">
             <label class="form-field">
@@ -150,11 +154,11 @@
       <div class="container contact-grid">
         <div>
           <h2 id="contact-heading">Contact</h2>
-          <p>Email: <a href="mailto:farmciccotto@gmail.com">farmciccotto@gmail.com</a><br>Phone: +39 0123 456789</p>
+          <p>Email: <a href="mailto:farmciccotto@gmail.com">farmciccotto@gmail.com</a><br>Phone: +44 7719947399</p>
           <p>Follow us on <a href="https://www.instagram.com/farmciccotto" target="_blank" rel="noopener noreferrer">Instagram</a></p>
         </div>
         <div class="contact-map" aria-hidden="true">
-          <img src="assets/images/2_20220518_082010_0001_large.jpg" alt="" />
+          <img src="assets/2_20220518_082010_0001.jpg" alt="" />
         </div>
       </div>
     </section>
@@ -166,19 +170,6 @@
       <p class="credits">Made with care — small-batch olive oil from Italy</p>
     </div>
   </footer>
-
-  <!-- Cookie / privacy notice -->
-  <div id="cookieNotice" class="cookie-notice" role="dialog" aria-live="polite" aria-label="Cookie notice" style="display:none;">
-    <div class="cookie-text">
-      We use analytics to improve the site. By continuing you accept our <a href="/privacy.html">privacy policy</a>.
-    </div>
-    <div class="cookie-actions">
-      <button id="acceptCookies" class="btn-primary">Accept</button>
-      <button id="declineCookies" class="btn-outline">Decline</button>
-    </div>
-  </div>
-
-  <script src="scripts/lightbox.js"></script>
 
   <script>
     // Mobile nav toggle
@@ -194,72 +185,39 @@
     })();
   </script>
 
+  <script src="scripts/lightbox.js"></script>
   <script>
-    // Gallery loader: fetch assets/images.json and construct <picture> preferring AVIF -> WEBP -> JPG
+    // Gallery loader: fetch assets/images.json (array of {src, alt, srcSmall?})
     (function () {
       const grid = document.getElementById('gallery-grid');
       if (!grid) return;
-
-      fetch('assets/images.json', {cache: 'no-cache'})
-        .then(r => {
-          if (!r.ok) throw new Error('images.json not found');
-          return r.json();
-        })
-        .then(images => {
-          grid.innerHTML = '';
-          if (!Array.isArray(images) || images.length === 0) {
-            grid.innerHTML = '<p>No images yet. Add assets/images.json listing your files.</p>';
-            return;
+	@@ -123,7 +204,9 @@ <h2 id="contact-heading">Contact</h2>
           }
-
           images.forEach(img => {
             try {
+              // wrap image in a button/div for the lightbox
               const wrapper = document.createElement('div');
               wrapper.className = 'gallery-item';
-
-              const picture = document.createElement('picture');
-
-              // small (mobile)
-              if (img.srcSmallAvif) {
-                const s = document.createElement('source'); s.type = 'image/avif';
-                s.setAttribute('srcset', img.srcSmallAvif); s.setAttribute('media', '(max-width:800px)');
-                picture.appendChild(s);
-              }
-              if (img.srcSmallWebp) {
-                const s = document.createElement('source'); s.type = 'image/webp';
-                s.setAttribute('srcset', img.srcSmallWebp); s.setAttribute('media', '(max-width:800px)');
-                picture.appendChild(s);
-              }
               if (img.srcSmall) {
-                const s = document.createElement('source'); s.setAttribute('srcset', img.srcSmall); s.setAttribute('media', '(max-width:800px)');
-                picture.appendChild(s);
+                const picture = document.createElement('picture');
+                const source = document.createElement('source');
+	@@ -134,24 +217,48 @@ <h2 id="contact-heading">Contact</h2>
+                el.className = 'photo';
+                el.src = img.src;
+                el.alt = img.alt || '';
+                el.loading = 'lazy';
+                picture.appendChild(el);
+                wrapper.appendChild(picture);
+              } else {
+                const el = document.createElement('img');
+                el.className = 'photo';
+                el.src = img.src;
+                el.alt = img.alt || '';
+                el.loading = 'lazy';
+                wrapper.appendChild(el);
               }
-
-              // large (desktop)
-              if (img.srcAvif) {
-                const s = document.createElement('source'); s.type = 'image/avif';
-                s.setAttribute('srcset', img.srcAvif);
-                picture.appendChild(s);
-              }
-              if (img.srcWebp) {
-                const s = document.createElement('source'); s.type = 'image/webp';
-                s.setAttribute('srcset', img.srcWebp);
-                picture.appendChild(s);
-              }
-
-              // fallback img
-              const el = document.createElement('img');
-              el.className = 'photo';
-              el.src = img.src || img.srcWebp || img.srcAvif || '';
-              el.alt = img.alt || '';
-              el.loading = 'lazy';
-              el.decoding = 'async';
-              picture.appendChild(el);
-
-              wrapper.appendChild(picture);
-
-              // attach full-size url for lightbox (prefer webp/avif full if present)
-              wrapper.dataset.full = img.fullAvif || img.fullWebp || img.full || el.src;
+              // attach full-size url for lightbox
+              wrapper.dataset.full = img.full || img.src;
               wrapper.dataset.alt = img.alt || '';
               grid.appendChild(wrapper);
             } catch (e) {
@@ -268,26 +226,25 @@
           });
         })
         .catch(() => {
-          // keep noscript fallback
+          // keep noscript/static fallback if available
         });
     })();
 
-    // Cookie notice: show once, store choice in localStorage; if user accepts, Plausible already loads (no special opt-out needed for most uses)
+    // Form: intercept to show success message client-side (Formspree will still receive)
     (function () {
-      const notice = document.getElementById('cookieNotice');
-      const acceptBtn = document.getElementById('acceptCookies');
-      const declineBtn = document.getElementById('declineCookies');
-      if (!notice) return;
-      const seen = localStorage.getItem('fc_cookie_accept');
-      if (!seen) notice.style.display = 'flex';
-      acceptBtn.addEventListener('click', () => {
-        localStorage.setItem('fc_cookie_accept', 'true');
-        notice.style.display = 'none';
-      });
-      declineBtn.addEventListener('click', () => {
-        localStorage.setItem('fc_cookie_accept', 'false');
-        notice.style.display = 'none';
-        // optionally disable analytics — Plausible will not send events if you remove its script; we keep it minimal here
+      const form = document.getElementById('orderForm');
+      const msg = document.getElementById('formMessage');
+      if (!form || !msg) return;
+
+      form.addEventListener('submit', function (ev) {
+        // Let browser submit normally to Formspree, but show an immediate friendly message
+        msg.style.display = 'block';
+        msg.textContent = 'Sending… please wait.';
+        // After a short delay, display confirmation to user (Formspree will also send email)
+        setTimeout(() => {
+          msg.textContent = 'Thanks — your order request was sent. We will reply within 24–48 hours.';
+          form.reset();
+        }, 1200);
       });
     })();
   </script>
