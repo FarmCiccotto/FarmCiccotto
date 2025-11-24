@@ -1,253 +1,218 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Farm Ciccotto – Premium Extra Virgin Olive Oil</title>
-  <meta name="description" content="Farm Ciccotto produces premium extra virgin olive oil from our family farm in Italy." />
-  <meta name="theme-color" content="#2e3d36" />
+  <title>Farm Ciccotto — Olive Oil from Racalmuto, Sicily</title>
+  <meta name="description"
+    content="Farm Ciccotto: estate-grown extra virgin olive oil from Racalmuto (Sicily). Small-batch, sustainably farmed, family-crafted." />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Farm Ciccotto — Olive Oil from Sicily" />
+  <meta property="og:description"
+    content="Estate-grown, small-batch extra virgin olive oil from Racalmuto, Sicily. Traditional methods and sustainable farming." />
+  <meta property="og:image" content="/assets/1_20220518_082010_0000.jpg" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://farmciccotto.com" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap"
+    rel="stylesheet">
 
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles-modern.css" />
+
+  <!-- Structured Data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Farm Ciccotto",
+    "image": "https://farmciccotto.com/assets/1_20220518_082010_0000.jpg",
+    "url": "https://farmciccotto.com",
+    "telephone": "+44 7719947399",
+    "email": "farmciccotto@gmail.com",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Contrada Oliva Padreterno, vicino Monte Cannatone",
+      "addressLocality": "Racalmuto",
+      "addressRegion": "AG",
+      "postalCode": "92020",
+      "addressCountry": "IT"
+    },
+    "geo": { "@type": "GeoCoordinates", "latitude": 37.42117, "longitude": 13.69839 },
+    "openingHours": ["Mo-Su 09:00-18:00"]
+  }
+  </script>
 </head>
-<body>
-  <a class="skip-link" href="#main-content">Skip to main content</a>
 
-  <header class="site-header" role="banner" aria-label="Site header">
-    <div class="container header-inner">
-      <a class="brand" href="#">
-        <img src="assets/Logo ciccotto timbro black (2).png" alt="Farm Ciccotto logo" class="brand-logo" />
-        <span class="brand-text">Farm Ciccotto</span>
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container" style="display:flex;align-items:center;justify-content:space-between">
+      <a class="brand" href="/">
+        <img src="/assets/Logo ciccotto timbro black (2).png" alt="Farm Ciccotto logo" class="brand-logo" />
+        <span style="font-family:'Playfair Display',serif;font-weight:700;">Farm Ciccotto</span>
       </a>
 
-      <button class="nav-toggle" aria-controls="primary-navigation" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="hamburger"></span>
-      </button>
-
-      <nav id="primary-navigation" class="primary-nav" role="navigation" aria-label="Main navigation">
+      <nav aria-label="Main navigation">
         <ul>
           <li><a href="#about">About</a></li>
           <li><a href="#products">Products</a></li>
           <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#order">Order</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
       </nav>
     </div>
-
-    <div class="hero" role="region" aria-labelledby="site-title">
-      <div class="hero-inner container">
-        <h1 id="site-title" class="hero-title">Farm Ciccotto</h1>
-        <p class="hero-sub">Small-batch, family-crafted extra virgin olive oil — authentic flavor from our grove to your table.</p>
-        <a class="cta" href="#order">Order Now</a>
-      </div>
-    </div>
   </header>
 
-  <main id="main-content" tabindex="-1">
-    <section id="about" class="section about" aria-labelledby="about-heading">
-      <div class="container section-grid">
-        <div class="about-text">
-          <h2 id="about-heading">About Us</h2>
-          <p>From our family farm in Italy, Farm Ciccotto cultivates olives with care and presses them using traditional, sustainable methods. Every bottle is traceable back to our grove and crafted to highlight its bright, peppery character.</p>
-          <ul class="highlights">
-            <li><strong>Single-origin</strong> — produced on our estate</li>
-            <li><strong>First cold press</strong> — for maximum flavor and nutrients</li>
-            <li><strong>Sustainably farmed</strong> — minimal intervention, maximum quality</li>
-          </ul>
-        </div>
-        <div class="about-image" aria-hidden="true">
-          <img src="assets/1_20220518_082010_0000.jpg" alt="Olive grove at Farm Ciccotto" />
-        </div>
+  <!-- HERO -->
+  <main>
+    <section class="container hero" aria-labelledby="hero-title">
+      <div class="hero-left">
+        <h1 id="hero-title">Farm Ciccotto</h1>
+        <p class="lead">Estate-grown, small-batch extra virgin olive oil cultivated in Racalmuto, Sicily. Traditional
+          methods, modern stewardship.</p>
+        <a class="cta" href="#order">Order Now</a>
+      </div>
+
+      <div class="hero-right">
+        <img src="/assets/1_20220518_082010_0000.jpg" alt="Olive grove at Farm Ciccotto" />
       </div>
     </section>
 
-    <section id="products" class="section products" aria-labelledby="products-heading">
-      <div class="container">
-        <h2 id="products-heading">Our Products</h2>
-        <div class="products-grid">
-          <article class="product-card">
-            <img src="assets/1_20220518_082010_0000.jpg" alt="Extra Virgin Olive Oil bottle" class="product-image" />
-            <div class="product-body">
-              <h3>Extra Virgin Olive Oil</h3>
-              <p class="muted">Cold-pressed, fruity with a peppery finish. Available in 500ml and 1L bottles.</p>
-              <ul>
-                <li>Harvested & bottled on our family farm</li>
-                <li>First cold press</li>
-                <li>Organic and sustainable</li>
-              </ul>
-              <a class="btn-outline" href="#order">Request Price</a>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
+    <!-- ABOUT -->
+    <section id="about" class="container section" aria-labelledby="about-heading">
+      <div class="two-col">
 
-    <section id="gallery" class="section gallery" aria-labelledby="gallery-heading">
-      <div class="container">
-        <h2 id="gallery-heading">Gallery</h2>
-        <div id="gallery-grid" class="gallery-grid" aria-live="polite" aria-label="Photo gallery">
-          <!-- JS will render images from assets/images.json -->
-          <noscript>
-            <img class="photo" src="assets/1_20220518_082010_0000.jpg" alt="Olive grove" />
-            <img class="photo" src="assets/2_20220518_082010_0001.jpg" alt="Harvesting olives" />
-            <img class="photo" src="assets/2_20220518_082010_0003.jpg" alt="Harvesting olives" />
-          </noscript>
-        </div>
-      </div>
-    </section>
-
-    <section id="order" class="section order" aria-labelledby="order-heading">
-      <div class="container">
-        <h2 id="order-heading">Order</h2>
-        <p>To place an order, email <a href="mailto:farmciccotto@gmail.com">farmciccotto@gmail.com</a> or use the form below. We'll reply with availability, pricing, and shipping options within 24–48 hours.</p>
-
-        <!--
-          IMPORTANT:
-          - Replace {YOUR_FORMSPREE_ID} with the Formspree form ID you create.
-          - Or replace the action with your server endpoint (e.g., Netlify, serverless) if you prefer.
-        -->
-        <form id="orderForm" class="order-form" method="POST" action="https://formspree.io/f/mblbjpjb" aria-label="Order form">			
-			
-          <!-- simple honeypot to catch bots -->
-          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
-
-          <!-- optional: set email subject for Formspree -->
-          <input type="hidden" name="_subject" value="New order request from website" />
-
-          <div class="form-grid">
-            <label class="form-field">
-              <span class="label">Name</span>
-              <input type="text" name="name" required aria-required="true" placeholder="Your full name" />
-            </label>
-
-            <label class="form-field">
-              <span class="label">Email</span>
-              <input type="email" name="email" required aria-required="true" placeholder="you@example.com" />
-            </label>
-
-            <label class="form-field full">
-              <span class="label">Product & Quantity</span>
-              <textarea name="order_details" rows="3" required placeholder="e.g., 2 x 1L bottles"></textarea>
-            </label>
-
-            <label class="form-field full">
-              <span class="label">Shipping Address</span>
-              <textarea name="address" rows="2" required placeholder="Street, City, Postal code, Country"></textarea>
-            </label>
-          </div>
-
-          <div class="form-actions">
-            <button type="submit" class="btn-primary">Submit Order Request</button>
-            <p class="form-note">Prefer a quote or larger quantities? Email <a href="mailto:farmciccotto@gmail.com">farmciccotto@gmail.com</a> and we'll prepare a custom offer.</p>
-          </div>
-
-          <div id="formMessage" class="form-message" role="status" aria-live="polite" style="display:none;"></div>
-        </form>
-      </div>
-    </section>
-
-    <section id="contact" class="section contact" aria-labelledby="contact-heading">
-      <div class="container contact-grid">
         <div>
-          <h2 id="contact-heading">Contact</h2>
-          <p>Email: <a href="mailto:farmciccotto@gmail.com">farmciccotto@gmail.com</a><br>Phone: +44 7719947399</p>
-          <p>Follow us on <a href="https://www.instagram.com/farmciccotto" target="_blank" rel="noopener noreferrer">Instagram</a></p>
+          <h2 id="about-heading">About Us</h2>
+          <p class="muted">From our family farm in Racalmuto, we cultivate olive trees using sustainable methods, harvest
+            by hand when possible, and press using cold extraction to preserve aroma and healthy polyphenols.</p>
+          <ul>
+            <li><strong>Single-estate</strong> — every bottle traceable to our grove</li>
+            <li><strong>First cold press</strong> — preserved flavor & nutrients</li>
+            <li><strong>Sustainably farmed</strong> — low-impact agriculture</li>
+          </ul>
+
+          <p style="margin-top:1rem">
+            <a href="/assets/Farm CiccottoDimí2023_compressed.pdf" target="_blank">Farm booklet (Dimí 2023)</a>
+          </p>
         </div>
-        <div class="contact-map" aria-hidden="true">
-          <img src="assets/2_20220518_082010_0001.jpg" alt="" />
-        </div>
+
+        <aside>
+          <div class="product-card">
+            <h3 style="margin-top:0">Our Product</h3>
+            <p class="muted">Extra Virgin Olive Oil — fruity with a peppery finish. Available in 500ml & 1L bottles.</p>
+            <p style="margin:0.5rem 0">
+              <a href="#order" class="cta" style="background:transparent;border:1px solid var(--brand-dark);color:var(--brand-dark);">Request Price</a>
+            </p>
+          </div>
+
+          <div style="margin-top:1rem;font-size:0.95rem;color:var(--text-muted)">
+            <p style="margin:.25rem 0">
+              <strong>Harvest gallery:</strong>
+              <a href="/assets/Farm Ciccotto Harvesting 2023_compressed.pdf" target="_blank">Download photos</a>
+            </p>
+          </div>
+        </aside>
+
       </div>
     </section>
+
+    <!-- GALLERY -->
+    <section id="gallery" class="container section" aria-labelledby="gallery-heading">
+      <h2 id="gallery-heading">Gallery</h2>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
+        <img src="/assets/1_20220518_082010_0000.jpg" alt="Olive grove" loading="lazy" style="border-radius:8px;height:180px;object-fit:cover;">
+        <img src="/assets/2_20220518_082010_0001.jpg" alt="Harvesting olives" loading="lazy" style="border-radius:8px;height:180px;object-fit:cover;">
+        <img src="/assets/4_20220518_082010_0003.jpg" alt="Harvesting olives" loading="lazy" style="border-radius:8px;height:180px;object-fit:cover;">
+      </div>
+    </section>
+
+    <!-- ORDER -->
+    <section id="order" class="container section" aria-labelledby="order-heading">
+      <h2 id="order-heading">Order</h2>
+      <p class="muted">Email us at <a href="mailto:farmciccotto@gmail.com">farmciccotto@gmail.com</a> or use the form
+        below. We will reply with availability, pricing, and shipping options.</p>
+
+      <form id="orderForm" method="POST" action="https://formspree.io/f/mblbjpjb"
+        style="display:grid;grid-template-columns:1fr 1fr;gap:10px;max-width:720px">
+        <input name="name" placeholder="Your name" required />
+        <input name="email" type="email" placeholder="you@example.com" required />
+        <textarea name="order_details" placeholder="Product & quantity" required style="grid-column:1 / -1"></textarea>
+        <textarea name="address" placeholder="Shipping address" required style="grid-column:1 / -1"></textarea>
+        <button type="submit"
+          style="grid-column:1 / -1;padding:0.8rem;border-radius:8px;border:0;background:var(--brand-dark);color:#fff">Submit
+          Order Request</button>
+      </form>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="container section" aria-labelledby="contact-heading">
+      <div class="two-col">
+        <div>
+          <h2 id="contact-heading">Contact & Visit Us</h2>
+          <p class="muted">Email: <a href="mailto:farmciccotto@gmail.com">farmciccotto@gmail.com</a><br>Phone: +44
+            7719947399</p>
+
+          <h3 style="margin-top:1rem">Location</h3>
+
+          <div class="map-container">
+            <iframe title="Farm Ciccotto location"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3168.677026915126!2d13.6980728!3d37.4211081!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x13109b61fda0e6a3%3A0x590feb7b7dfa4b79!2sFarmCiccotto!5e0!3m2!1sit!2sit!4v1763899536994!5m2!1sit!2sit"
+              width="100%" height="320" style="border:0;" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+          </div>
+
+          <p class="address">
+            Contrada Oliva Padreterno, vicino Monte Cannatone<br>
+            92020 Racalmuto (AG), Sicily, Italy<br>
+            <a href="https://maps.google.com/?q=37.42117,13.69839" target="_blank">Open in Google Maps</a><br>
+            <small>Coordinates: 37°25'16.2\"N 13°41'54.2\"E</small>
+          </p>
+        </div>
+
+        <aside>
+          <h3>Visit resources</h3>
+          <p class="muted">Download information and our harvest gallery.</p>
+          <ul>
+            <li><a href="/assets/Farm CiccottoDimí2023_compressed.pdf" target="_blank">Farm Ciccotto — Dimí 2023 (PDF)</a></li>
+            <li><a href="/assets/Farm Ciccotto Harvesting 2023_compressed.pdf" target="_blank">Harvest 2023 (PDF)</a></li>
+            <li><a href="/assets/Farm Picture cataloge_compressed.pdf" target="_blank">Picture Catalog</a></li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
   </main>
 
-  <footer class="site-footer" role="contentinfo">
-    <div class="container footer-inner">
-      <p>&copy; 2025 Farm Ciccotto. All rights reserved.</p>
-      <p class="credits">Made with care — small-batch olive oil from Italy</p>
+  <!-- FOOTER -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Farm Ciccotto — All rights reserved.</p>
     </div>
   </footer>
 
+  <!-- Form script -->
   <script>
-    // Mobile nav toggle
-    (function () {
-      const btn = document.querySelector('.nav-toggle');
-      const nav = document.getElementById('primary-navigation');
-      if (!btn) return;
-      btn.addEventListener('click', () => {
-        const expanded = btn.getAttribute('aria-expanded') === 'true';
-        btn.setAttribute('aria-expanded', String(!expanded));
-        nav.classList.toggle('open');
-      });
-    })();
-  </script>
-
-  <script src="scripts/lightbox.js"></script>
-  <script>
-    // Gallery loader: fetch assets/images.json (array of {src, alt, srcSmall?})
-    (function () {
-      const grid = document.getElementById('gallery-grid');
-      if (!grid) return;
-	@@ -123,7 +204,9 @@ <h2 id="contact-heading">Contact</h2>
-          }
-          images.forEach(img => {
-            try {
-              // wrap image in a button/div for the lightbox
-              const wrapper = document.createElement('div');
-              wrapper.className = 'gallery-item';
-              if (img.srcSmall) {
-                const picture = document.createElement('picture');
-                const source = document.createElement('source');
-	@@ -134,24 +217,48 @@ <h2 id="contact-heading">Contact</h2>
-                el.className = 'photo';
-                el.src = img.src;
-                el.alt = img.alt || '';
-                el.loading = 'lazy';
-                picture.appendChild(el);
-                wrapper.appendChild(picture);
-              } else {
-                const el = document.createElement('img');
-                el.className = 'photo';
-                el.src = img.src;
-                el.alt = img.alt || '';
-                el.loading = 'lazy';
-                wrapper.appendChild(el);
-              }
-              // attach full-size url for lightbox
-              wrapper.dataset.full = img.full || img.src;
-              wrapper.dataset.alt = img.alt || '';
-              grid.appendChild(wrapper);
-            } catch (e) {
-              // skip invalid entry
-            }
+    document.addEventListener('submit', function (e) {
+      const form = e.target;
+      if (form && form.id === 'orderForm') {
+        e.preventDefault();
+        fetch(form.action, { method: 'POST', body: new FormData(form) })
+          .then(() => {
+            alert('Thanks — your order request was sent. We will reply within 24–48 hours.');
+            form.reset();
+          })
+          .catch(() => {
+            alert('There was a problem sending the request. Please email farmciccotto@gmail.com');
           });
-        })
-        .catch(() => {
-          // keep noscript/static fallback if available
-        });
-    })();
-
-    // Form: intercept to show success message client-side (Formspree will still receive)
-    (function () {
-      const form = document.getElementById('orderForm');
-      const msg = document.getElementById('formMessage');
-      if (!form || !msg) return;
-
-      form.addEventListener('submit', function (ev) {
-        // Let browser submit normally to Formspree, but show an immediate friendly message
-        msg.style.display = 'block';
-        msg.textContent = 'Sending… please wait.';
-        // After a short delay, display confirmation to user (Formspree will also send email)
-        setTimeout(() => {
-          msg.textContent = 'Thanks — your order request was sent. We will reply within 24–48 hours.';
-          form.reset();
-        }, 1200);
-      });
-    })();
+      }
+    });
   </script>
+
 </body>
 </html>
