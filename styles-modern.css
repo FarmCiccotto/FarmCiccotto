@@ -29,51 +29,61 @@ h2{font-size:clamp(1.6rem,2.6vw,2.2rem)}
 .lead{color:var(--text-muted);max-width:54ch}
 .muted{color:var(--text-muted)}
 
-/* HEADER — FIXED & RESTORED */
-header{
-  padding:18px 0;
-  border-bottom:1px solid rgba(0,0,0,0.04);
-  background:#fff;
+/* HEADER — Premium Farm Ciccotto */
+.site-header{
+  background:#ffffff;
+  border-bottom:1px solid rgba(0,0,0,0.06);
+  padding:16px 0;
 }
 
 .header-inner{
   display:flex;
   align-items:center;
   justify-content:space-between;
+  gap:20px;
 }
 
 .brand{
   display:flex;
   align-items:center;
-  gap:.75rem;
+  gap:12px;
   text-decoration:none;
   color:var(--brand-dark);
 }
 
 .brand-logo{
-  height:48px;
+  height:54px;
   width:auto;
+  object-fit:contain;
 }
 
 .brand-text{
-  font-size:1.25rem;
-  font-weight:600;
+  font-family:var(--font-serif);
+  font-size:1.6rem;
+  font-weight:700;
+  letter-spacing:0.3px;
+  color:var(--brand-dark);
 }
 
-nav.desktop-nav ul{
+.desktop-nav ul{
   display:flex;
-  gap:1.25rem;
+  gap:1.8rem;
   list-style:none;
-  padding:0;
   margin:0;
+  padding:0;
 }
 
-nav.desktop-nav a{
-  color:inherit;
+.desktop-nav a{
   text-decoration:none;
   font-weight:600;
+  color:var(--brand-dark);
+  font-size:1rem;
+  transition:color .25s ease;
 }
 
+.desktop-nav a:hover{
+  color:var(--accent-gold);
+}
 /* HERO */
 .hero{
   display:grid;
