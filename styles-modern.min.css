@@ -129,3 +129,9 @@ footer{padding:2rem 0;text-align:center;color:var(--text-muted);border-top:1px s
   .hamburger{display:flex}
 }
 
+@media(max-width:520px){
+  .brand-logo{height:42px!important}
+  .brand-text{font-size:1.25rem!important}
+}
+
+
