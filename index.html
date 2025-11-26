@@ -15,7 +15,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
 
-  <link rel="stylesheet" href="styles-modern.css" />
+  <link rel="stylesheet" href="styles-modern.min.css" />
 </head>
 <body>
 
@@ -42,7 +42,7 @@
   <section class="container hero" aria-labelledby="hero-title">
     <div class="hero-left">
       <h1 id="hero-title">Farm Ciccotto</h1>
-      <p class="lead">Estate-grown, small-batch extra virgin olive oil cultivated in Racalmuto, Sicily. Traditional methods, modern stewardship.</p>
+      <p class="lead">Family-Estate-grown, small-batch extra virgin olive oil cultivated in Racalmuto, Sicily. Traditional methods, modern stewardship.</p>
       <a href="#order" class="cta">Order Now</a>
     </div>
 
@@ -69,8 +69,8 @@
       <aside>
         <div class="product-card">
           <h3>Our Product</h3>
-          <p class="muted">Extra Virgin Olive Oil — fruity with a peppery finish. Available in 500ml & 1L bottles.</p>
-          <a href="#order" class="btn-outline">Request Price</a>
+          <p class="muted">Extra Virgin Olive Oil — a reflection of Nature.</p>
+          <a href="#order" class="btn-outline">Request Availability</a>
         </div>
       </aside>
     </div>
@@ -125,7 +125,7 @@
         </div>
 
         <p class="address">
-          Contrada Oliva Padreterno, vicino Monte Cannatone<br>
+          Contrada Oliva/Padreterno, near Monte Cannatone<br>
           92020 Racalmuto (AG), Sicily, Italy<br>
           <a href="https://maps.google.com/?q=37.42117,13.69839" target="_blank">Open in Google Maps</a><br>
           <small>Coordinates: 37°25'16.2"N 13°41'54.2"E</small>
@@ -146,4 +146,71 @@
 <footer>
   <div class="container">
     <p>&copy; 2025 Farm Ciccotto — All rights reserved.</p>
-    <p><a
+    <p><a href="/privacy.html">Privacy Policy</a> · <a href="/cookies.html">Cookie Policy</a></p>
+  </div>
+</footer>
+
+<!-- COOKIE BANNER -->
+<div id="cookie-banner" class="cookie-banner hidden">
+  <div class="cookie-inner"><p>We use essential technical cookies to improve your experience. No profiling cookies are used.</p></div>
+  <div class="cookie-actions">
+    <button id="cookie-accept" class="btn">Accept</button>
+    <a href="/cookies.html" class="btn-link">Learn more</a>
+  </div>
+</div>
+
+<!-- LIGHTBOX -->
+<div id="lightbox" class="lightbox hidden" role="dialog" aria-modal="true">
+  <button id="lb-close" class="lb-close" aria-label="Close">×</button>
+  <img id="lb-image" src="" alt="" />
+  <p id="lb-caption" class="lb-caption"></p>
+</div>
+
+<!-- SCRIPTS -->
+<script>
+// Lightbox
+(function(){
+  const items = document.querySelectorAll('.gallery-item');
+  const lb = document.getElementById('lightbox');
+  const lbImg = document.getElementById('lb-image');
+  const lbCap = document.getElementById('lb-caption');
+  const lbClose = document.getElementById('lb-close');
+
+  items.forEach(i => i.addEventListener('click', e => {
+    e.preventDefault();
+    lbImg.src = i.href;
+    lbCap.textContent = i.dataset.caption || '';
+    lb.classList.remove('hidden');
+  }));
+
+  lbClose.onclick = ()=> lb.classList.add('hidden');
+  lb.onclick = e => { if(e.target === lb) lb.classList.add('hidden'); };
+  document.onkeydown = e => { if(e.key === 'Escape') lb.classList.add('hidden'); };
+})();
+
+// Cookie banner
+(function(){
+  const b = document.getElementById('cookie-banner');
+  const a = document.getElementById('cookie-accept');
+  if(localStorage.getItem('fc_cookie_consent')==='yes') return;
+  b.classList.remove('hidden');
+  a.onclick = ()=>{
+    localStorage.setItem('fc_cookie_consent','yes');
+    b.classList.add('hidden');
+  };
+})();
+
+// Order form
+document.addEventListener('submit', function(e){
+  const f = e.target;
+  if(f && f.id==='orderForm'){
+    e.preventDefault();
+    fetch(f.action, { method:'POST', body:new FormData(f) })
+      .then(()=>{ alert('Thanks — your order request was sent. We will reply within 24–48 hours.'); f.reset(); })
+      .catch(()=>{ alert('Error sending request. Please email farmciccotto@gmail.com'); });
+  }
+});
+</script>
+
+</body>
+</html>
