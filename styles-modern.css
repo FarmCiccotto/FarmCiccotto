@@ -1,200 +1,106 @@
-/* styles-modern.css — Modern Heritage theme for Farm Ciccotto */
-
-/* ------------------------------
-   1. PALETTE & ROOT VARIABLES
------------------------------- */
-:root {
-  --brand-dark: #16341F;          /* deep olive */
-  --brand-light: #F4F1E7;         /* sicilian cream */
-  --accent-gold: #C8B084;         /* terracotta gold */
-  --text-strong: #1B1B1B;         /* dark charcoal */
-  --text-muted: #6B6B6B;          /* stone grey */
-  --radius-soft: 12px;
-  --max-width: 1080px;
-  --font-serif: 'Playfair Display', serif;
-  --font-sans: 'Inter', system-ui, sans-serif;
+/* styles-modern.css — Modern Heritage V2 for Farm Ciccotto
+   Features: premium palette, 20px mobile padding, gallery mosaic + lightbox, cookie banner (dark), responsive
+*/
+:root{
+  --brand-dark:#16341F; /* deep olive */
+  --brand-light:#F4F1E7; /* sicilian cream */
+  --accent-gold:#C8B084;
+  --text-strong:#1B1B1B;
+  --text-muted:#6B6B6B;
+  --radius:12px;
+  --max-width:1080px;
+  --side-pad:20px; /* mobile recommended */
+  --font-serif:'Playfair Display', serif;
+  --font-sans:'Inter', system-ui, sans-serif;
 }
 
-/* ------------------------------
-   2. GLOBAL RESET & BASE
------------------------------- */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html, body { width: 100%; height: 100%; }
-body {
-  font-family: var(--font-sans);
-  color: var(--text-strong);
-  background: #ffffff;
-  line-height: 1.55;
-  -webkit-font-smoothing: antialiased;
-}
-img { max-width: 100%; display: block; }
-a { color: var(--brand-dark); text-decoration: none; }
+/* Reset & base */
+*{box-sizing:border-box}
+html,body{height:100%;}
+body{font-family:var(--font-sans);color:var(--text-strong);line-height:1.6;background:#fff;margin:0}
+img{display:block;max-width:100%;height:auto}
+.container{max-width:var(--max-width);margin:0 auto;padding:0 var(--side-pad)}
 
-.container {
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 1rem;
-}
+/* Typography */
+h1,h2,h3{font-family:var(--font-serif);color:var(--brand-dark);margin:0 0 .6rem}
+h1{font-size:clamp(2.4rem,4vw,3.6rem);letter-spacing:0.4px}
+h2{font-size:clamp(1.6rem,2.6vw,2.2rem)}
+.lead{color:var(--text-muted);max-width:54ch}
+.muted{color:var(--text-muted)}
 
-/* ------------------------------
-   3. TYPOGRAPHY
------------------------------- */
-h1, h2, h3 {
-  font-family: var(--font-serif);
-  color: var(--brand-dark);
-  letter-spacing: 0.5px;
-}
+/* Header */
+header{padding:18px 0;border-bottom:1px solid rgba(0,0,0,0.04);background:#fff}
+.brand{display:flex;align-items:center;gap:.75rem;text-decoration:none;color:var(--brand-dark)}
+.brand-logo{height:48px;width:auto}
+nav.desktop-nav ul{display:flex;gap:1.25rem;list-style:none;padding:0;margin:0}
+nav a{color:inherit;text-decoration:none;font-weight:600}
 
-h1 { font-size: clamp(2.5rem, 4vw, 3.8rem); margin-bottom: 0.5rem; }
-h2 { font-size: clamp(1.8rem, 3vw, 2.4rem); margin-bottom: 1rem; }
-h3 { font-size: 1.4rem; margin-bottom: 0.5rem; }
+/* HERO */
+.hero{display:grid;grid-template-columns:1fr 1fr;gap:2.25rem;align-items:center;padding:3.25rem 0}
+.hero-right{background:var(--brand-light);border-radius:var(--radius);overflow:hidden;height:420px;display:flex;align-items:center;justify-content:center}
+.hero-right img{width:100%;height:100%;object-fit:cover;object-position:center}
+.cta{display:inline-block;background:var(--brand-dark);color:#fff;padding:.85rem 1.2rem;border-radius:10px;text-decoration:none}
 
-p { margin-bottom: 1rem; }
-.muted { color: var(--text-muted); }
+/* Two column layout */
+.two-col{display:grid;grid-template-columns:1fr 360px;gap:2rem;align-items:start}
+.section{padding:2.25rem 0}
+.product-card{background:#fff;border-radius:10px;padding:1rem;box-shadow:0 8px 20px rgba(16,24,32,0.06)}
+.btn-outline{display:inline-block;padding:.6rem .9rem;border-radius:8px;border:1px solid var(--brand-dark);color:var(--brand-dark);text-decoration:none}
 
-/* ------------------------------
-   4. HEADER & NAVIGATION
------------------------------- */
-header {
-  background: #fff;
-  border-bottom: 1px solid rgba(0,0,0,0.05);
-  padding: 1rem 0;
-}
-header .brand {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  color: var(--brand-dark);
-  font-family: var(--font-serif);
-  font-weight: 700;
-  text-decoration: none;
-}
-.brand-logo { height: 46px; width: auto; }
+/* Order form */
+.order-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;max-width:720px}
+.order-grid input,.order-grid textarea{padding:.85rem;border-radius:8px;border:1px solid #e6e6e6;font-family:var(--font-sans)}
+.btn-primary{grid-column:1 / -1;padding:.9rem;border-radius:10px;border:0;background:var(--brand-dark);color:#fff}
 
-nav ul {
-  list-style: none;
-  display: flex;
-  gap: 1.25rem;
-}
-nav a {
-  font-family: var(--font-sans);
-  font-weight: 600;
-}
+/* Gallery mosaic + lightbox */
+.gallery-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.gallery-item{display:block;overflow:hidden;border-radius:10px;position:relative}
+.gallery-item img{width:100%;height:260px;object-fit:cover;display:block;transition:transform .45s ease}
+.gallery-item:focus img,.gallery-item:hover img{transform:scale(1.03)}
 
-/* ------------------------------
-   5. HERO — Modern Heritage style
------------------------------- */
-.hero {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  padding: 3rem 0;
-  align-items: center;
-}
+/* Lightbox styles */
+.lightbox{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(0,0,0,0.85);z-index:10000;padding:24px}
+.lightbox.hidden{display:none}
+.lb-close{position:absolute;top:18px;right:22px;background:transparent;color:#fff;border:0;font-size:28px;cursor:pointer}
+.lb-caption{color:#fff;margin-top:12px;text-align:center}
+.lightbox img{max-width:95%;max-height:80vh;border-radius:8px;box-shadow:0 10px 40px rgba(0,0,0,0.6)}
 
-.hero-right {
-  background: var(--brand-light);
-  border-radius: var(--radius-soft);
-  height: 360px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 20px;
-}
+/* Map & address */
+.map-container{border-radius:12px;overflow:hidden;border:1px solid rgba(0,0,0,0.06);margin-top:1rem}
+.address{margin-top:.75rem;color:var(--text-muted)}
 
-.hero img {
-  height: 80%;
-  width: auto;
-  opacity: 0.9;
-  object-fit: contain;
+/* Footer */
+footer{padding:2rem 0;text-align:center;color:var(--text-muted);border-top:1px solid rgba(0,0,0,0.05)}
+
+/* Cookie banner (dark premium) */
+.cookie-banner{position:fixed;left:20px;right:20px;bottom:20px;background:rgba(10,10,10,0.9);color:#fff;padding:18px;border-radius:12px;z-index:9999;display:flex;align-items:center;justify-content:space-between;gap:12px}
+.cookie-banner.hidden{display:none}
+.cookie-inner p{margin:0;color:rgba(255,255,255,0.9)}
+.cookie-actions{display:flex;gap:10px;align-items:center}
+.cookie-actions .btn{background:var(--accent-gold);border:0;padding:.6rem .85rem;border-radius:8px;color:#1b1b1b;cursor:pointer}
+.cookie-actions .btn-link{color:#fff;text-decoration:underline;background:transparent;border:0}
+
+/* Accessibility helpers */
+.skip-link{position:absolute;left:-9999px;top:auto;width:1px;height:1px;overflow:hidden}
+.skip-link:focus{left:20px;top:20px;width:auto;height:auto;padding:.5rem .75rem;background:#000;color:#fff;border-radius:6px}
+
+/* Responsive */
+@media (max-width:980px){
+  .gallery-grid{grid-template-columns:repeat(2,1fr)}
+  .hero{grid-template-columns:1fr;gap:1.25rem}
+  .hero-right{height:300px}
+  .two-col{grid-template-columns:1fr}
+}
+@media (max-width:520px){
+  :root{--side-pad:20px}
+  .gallery-grid{grid-template-columns:1fr}
+  .gallery-item img{height:220px}
+  header{padding:14px 0}
+  .hero-right{height:220px}
+  .cta{padding:.7rem 1rem}
+  .order-grid{grid-template-columns:1fr}
 }
 
-.cta {
-  background: var(--brand-dark);
-  color: #fff;
-  padding: 0.85rem 1.2rem;
-  border-radius: 8px;
-  display: inline-block;
-  margin-top: 1rem;
-}
-
-/* ------------------------------
-   6. SECTIONS
------------------------------- */
-.section {
-  padding: 2.5rem 0;
-}
-
-.two-col {
-  display: grid;
-  grid-template-columns: 1fr 380px;
-  gap: 2rem;
-}
-
-/* ------------------------------
-   7. PRODUCT CARD
------------------------------- */
-.product-card {
-  background: #fff;
-  padding: 1rem;
-  border-radius: var(--radius-soft);
-  box-shadow: 0 6px 16px rgba(0,0,0,0.06);
-}
-
-/* ------------------------------
-   8. FORMS
------------------------------- */
-form input, form textarea {
-  width: 100%;
-  padding: 0.75rem;
-  border-radius: 8px;
-  border: 1px solid #ddd;
-  font-family: var(--font-sans);
-  margin-bottom: 1rem;
-}
-
-form button {
-  padding: 0.9rem;
-  background: var(--brand-dark);
-  border: none;
-  border-radius: 8px;
-  color: #fff;
-  cursor: pointer;
-  font-size: 1rem;
-}
-
-/* ------------------------------
-   9. CONTACT + MAP
------------------------------- */
-.map-container {
-  border-radius: var(--radius-soft);
-  overflow: hidden;
-  border: 1px solid rgba(0,0,0,0.06);
-  margin-top: 1rem;
-}
-
-/* ------------------------------
-   10. FOOTER
------------------------------- */
-footer {
-  padding: 2rem 0;
-  text-align: center;
-  color: var(--text-muted);
-  border-top: 1px solid rgba(0,0,0,0.05);
-}
-
-/* ------------------------------
-   11. RESPONSIVE
------------------------------- */
-@media (max-width: 900px) {
-  .hero {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
-  nav ul {
-    display: none;
-  }
-  .two-col {
-    grid-template-columns: 1fr;
-  }
-}
+/* Small utility */
+.text-center{text-align:center}
+.hidden{display:none}
