@@ -9,7 +9,7 @@
   <!-- OG -->
   <meta property="og:title" content="Farm Ciccotto" />
   <meta property="og:description" content="Estate-grown extra virgin olive oil from Racalmuto, Sicily." />
-  <meta property="og:image" content="/assets/" />
+  <meta property="og:image" content="/assets/1_20220518_082010_0000.jpg" />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -232,6 +232,23 @@ document.addEventListener('submit', function(e){
   }
 });
 </script>
+  <script>
+  const burger = document.querySelector('.hamburger');
+  const mobileMenu = document.querySelector('.mobile-menu');
+
+  burger.addEventListener('click', () => {
+    burger.classList.toggle('active');
+    mobileMenu.classList.toggle('open');
+  });
+
+  document.querySelectorAll('.mobile-menu a').forEach(link => {
+    link.addEventListener('click', () => {
+      burger.classList.remove('active');
+      mobileMenu.classList.remove('open');
+    });
+  });
+</script>
+
 
 </body>
 </html>
